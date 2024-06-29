@@ -1,0 +1,20 @@
+<div class="container mt-4">
+<div class="card">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm">
+
+        <div class="form-group">
+            <input formControlName="password" type="password" placeholder="Password">
+            <span>*Password is required</span>
+        </div>
+        <div>
+            <input formControlName="email" type="text" placeholder="Email">
+            <span>*Email is required</span>
+        </div>
+
+        <button  type="submit" class="btn btn-primary" (click)="login()">Submit</button>
+    </form>
+
+    
+</div>
+</div>

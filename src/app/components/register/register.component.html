@@ -1,0 +1,33 @@
+<div class="container mt-4">
+<div class="card">
+    <h3>Register</h3>
+    <form [formGroup]="registerForm">
+        <div>
+            <input formControlName="username" type="text" placeholder="Username">
+            <span>*Username is required</span>
+        </div>
+        <div>
+            <input formControlName="password" type="password" placeholder="Password">
+            <span>*Password is required</span>
+        </div>
+
+        <div>
+            <input formControlName="name" type="text" placeholder="Name">
+            <span>*Name is required</span>
+        </div>
+        <div>
+            <input formControlName="surname" type="text" placeholder="Surname">
+            <span>*Surname is required</span>
+        </div>
+
+        <div>
+            <input formControlName="email" type="text" placeholder="Email">
+            <span>*Email is required</span>
+        </div>
+
+        <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary"  (click)="register()">Submit</button>
+    </form>
+</div>
+</div>
+
+

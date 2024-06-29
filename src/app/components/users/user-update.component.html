@@ -1,0 +1,62 @@
+@if (!isLoggedIn){
+  you are not Logged in
+}
+@if (isLoggedIn) {
+<div class="container mt-4" >
+    <div class="card">
+            <h1>User Registration</h1>
+  <form>
+    <div class="form-group">
+      <label>username</label>
+      <input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}"  class="form-control" id="username" placeholder="Enter Username"> 
+    </div>
+    <div class="form-group">
+        <label>password</label>
+        <input type="password" class="form-control"  [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="password" placeholder="Enter Password"> 
+      </div>
+
+      <div class="form-group">
+        <label>name</label>
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"  class="form-control" id="name" placeholder="Enter Name"> 
+      </div>
+      <div class="form-group">
+        <label>surname</label>
+        <input type="text" [(ngModel)]="surname" [ngModelOptions]="{standalone: true}"  class="form-control" id="surname" placeholder="Enter Surname"> 
+      </div>
+
+      <div class="form-group">
+        <label>email</label>
+        <input type="text" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" id="email" placeholder="Enter Email"> 
+      </div>
+    <button type="submit" (click)="save()" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </div>
+  <div class="container mt-4" >
+  <h1>User Table</h1>
+  <table class="table">
+  <thead>    
+  <tr>
+      <th scope="col">username</th>
+      <th scope="col">name</th>
+      <th scope="col">surname</th>
+      <th scope="col">email</th>  
+      <th scope="col">Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (userItems of UserArray; track userItems)
+    {
+    <tr>
+    <td>{{userItems.username}}</td>
+    <td>{{userItems.name}}</td>
+    <td>{{userItems.surname}}</td>
+    <td>{{userItems.email}}</td>
+    <button type="button" class="btn btn-primary"(click)="setUpdate(userItems)">Update</button>
+    <button type="button" class="btn btn-danger" (click)="setDelete(userItems)">Delete</button>
+    </tr>
+    }
+  </tbody>
+  </table>
+  </div>
+}

@@ -1,0 +1,58 @@
+@if (!isLoggedIn){
+  you are not Logged in
+}
+@if (isLoggedIn) {
+<div class="container mt-4" >
+    <div class="card">
+            <h1>User Registration</h1>
+  <form>
+    <div class="form-group">
+      <label>product</label>
+      <input type="text" [(ngModel)]="product" [ngModelOptions]="{standalone: true}"  class="form-control" id="product" placeholder="Enter Product"> 
+    </div>
+    <div class="form-group">
+        <label>cost</label>
+        <input type="text" class="form-control"  [(ngModel)]="cost" [ngModelOptions]="{standalone: true}" id="cost" placeholder="Enter Cost"> 
+      </div>
+      <div class="form-group">
+        <label>description</label>
+        <input type="text" class="form-control" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" id="description" placeholder="Enter Description"> 
+      </div>
+
+      <div class="form-group">
+        <label>quantity</label>
+        <input type="text" class="form-control" [(ngModel)]="quantity" [ngModelOptions]="{standalone: true}" id="quantity" placeholder="Enter Quantity"> 
+      </div>
+
+    <button type="submit" (click)="save()" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </div>
+  <div class="container mt-4" >
+  <h1>Product Table</h1>
+  <table class="table">
+  <thead>    
+  <tr>
+      <th scope="col">product</th>
+      <th scope="col">cost</th>
+      <th scope="col">description</th>  
+      <th scope="col">quantity</th>    
+      <th scope="col">Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (productItems of ProductArray; track productItems)
+    {
+    <tr>
+    <td>{{productItems.product}}</td>
+    <td>{{productItems.cost}}</td>
+    <td>{{productItems.description}}</td>
+    <td>{{productItems.quantity}}</td>
+    <button type="button" class="btn btn-primary"(click)="setUpdate(productItems)">Update</button>
+    <button type="button" class="btn btn-danger" (click)="setDelete(productItems)">Delete</button>
+    </tr>
+    }
+  </tbody>
+  </table>
+  </div>
+}
